@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!-- 如果能看明白报错信息的，不难理解这里的错误，在这里<settings>的属性应该在<environments>前面，修改后： -->
+<!-- https://blog.csdn.net/zouxucong/article/details/66972526-->	
+	<settings>
+	 <!--  <setting name="cacheEnabled" value="true"/> -->
+		<setting name="logImpl" value="LOG4J"/>
+	</settings>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"></transactionManager>
+			<!-- 配置数据库的信息 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://localhost:3306/school"/>
+				<property name="username" value="root"/>
+				<property name="password" value="admin"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="mybatis/UserDaoMapper.xml"></mapper>
+	</mappers>
+	
+</configuration>

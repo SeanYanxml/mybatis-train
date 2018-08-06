@@ -6,5 +6,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>mybatis-train-quickstart</module>
+  	<module>mybatis-train-dynamic-sql</module>
   </modules>
 </project>
