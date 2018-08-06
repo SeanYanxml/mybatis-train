@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug">
+
+	<Appenders>
+		<Console name="Console">
+			<PatternLayout pattern="%d [%t] %-5p [%c] - %m%n" />
+		</Console>
+
+		<RollingFile name="RollingAppender" fileName="../logs/tmp.log" filePattern="../logs/tmp-%d{yyyy-MM-dd}.log">
+			<ThresholdFilter level="DEBUG" onMatch="ACCEPT"
+				onMismatch="DENY" />
+			<PatternLayout pattern="%d [%t] %-5p [%c] - %m%n" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="30MB" />
+			</Policies>
+		</RollingFile>
+		
+	</Appenders>
+
+	<Loggers>
+		<Logger name="org.springframework" level="info" additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingAppender" />
+		</Logger>
+
+		<Logger name="org.springframework.jdbc" level="info"
+			additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingAppender" />
+		</Logger>
+		<Logger name="org.springframework.security" level="WARN"
+			additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingAppender" />
+		</Logger>
+		<Logger name="org.apache" level="info" additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingAppender" />
+		</Logger>
+		<Logger name="com.mchange.v2" level="WARN" additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingAppender" />
+		</Logger>
+		<Logger name="org.hibernate.validator.internal" level="INFO"
+			additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingAppender" />
+		</Logger>
+		<Logger name="springfox" level="INFO" additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingAppender" />
+		</Logger>
+
+		
+		<Root level="INFO">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingAppender"/>
+		</Root>
+	</Loggers>
+
+</Configuration>

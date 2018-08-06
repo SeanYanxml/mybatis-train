@@ -7,5 +7,6 @@
   <modules>
   	<module>mybatis-train-quickstart</module>
   	<module>mybatis-train-dynamic-sql</module>
+  	<module>mybatis-train-spring-boot</module>
   </modules>
 </project>
